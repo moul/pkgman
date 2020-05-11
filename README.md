@@ -1,25 +1,25 @@
-# golang-repo-template
+# pkgman
 
-:smile: golang-repo-template
+:smile: pkgman
 
-[![CircleCI](https://circleci.com/gh/moul/golang-repo-template.svg?style=shield)](https://circleci.com/gh/moul/golang-repo-template)
-[![GoDoc](https://img.shields.io/static/v1?label=godoc&message=reference&color=blue)](https://pkg.go.dev/moul.io/golang-repo-template)
-[![License](https://img.shields.io/badge/license-Apache--2.0%20%2F%20MIT-%2397ca00.svg)](https://github.com/moul/golang-repo-template/blob/master/COPYRIGHT)
-[![GitHub release](https://img.shields.io/github/release/moul/golang-repo-template.svg)](https://github.com/moul/golang-repo-template/releases)
-[![Go Report Card](https://goreportcard.com/badge/moul.io/golang-repo-template)](https://goreportcard.com/report/moul.io/golang-repo-template)
-[![CodeFactor](https://www.codefactor.io/repository/github/moul/golang-repo-template/badge)](https://www.codefactor.io/repository/github/moul/golang-repo-template)
-[![codecov](https://codecov.io/gh/moul/golang-repo-template/branch/master/graph/badge.svg)](https://codecov.io/gh/moul/golang-repo-template)
-[![Docker Metrics](https://images.microbadger.com/badges/image/moul/golang-repo-template.svg)](https://microbadger.com/images/moul/golang-repo-template)
-[![GolangCI](https://golangci.com/badges/github.com/moul/golang-repo-template.svg)](https://golangci.com/r/github.com/moul/golang-repo-template)
-[![npm](https://img.shields.io/npm/v/@moul.io/golang-repo-template)](https://www.npmjs.com/package/@moul.io/golang-repo-template)
-[![Sourcegraph](https://sourcegraph.com/github.com/moul/golang-repo-template/-/badge.svg)](https://sourcegraph.com/github.com/moul/golang-repo-template?badge)
+[![CircleCI](https://circleci.com/gh/moul/pkgman.svg?style=shield)](https://circleci.com/gh/moul/pkgman)
+[![GoDoc](https://img.shields.io/static/v1?label=godoc&message=reference&color=blue)](https://pkg.go.dev/moul.io/pkgman)
+[![License](https://img.shields.io/badge/license-Apache--2.0%20%2F%20MIT-%2397ca00.svg)](https://github.com/moul/pkgman/blob/master/COPYRIGHT)
+[![GitHub release](https://img.shields.io/github/release/moul/pkgman.svg)](https://github.com/moul/pkgman/releases)
+[![Go Report Card](https://goreportcard.com/badge/moul.io/pkgman)](https://goreportcard.com/report/moul.io/pkgman)
+[![CodeFactor](https://www.codefactor.io/repository/github/moul/pkgman/badge)](https://www.codefactor.io/repository/github/moul/pkgman)
+[![codecov](https://codecov.io/gh/moul/pkgman/branch/master/graph/badge.svg)](https://codecov.io/gh/moul/pkgman)
+[![Docker Metrics](https://images.microbadger.com/badges/image/moul/pkgman.svg)](https://microbadger.com/images/moul/pkgman)
+[![GolangCI](https://golangci.com/badges/github.com/moul/pkgman.svg)](https://golangci.com/r/github.com/moul/pkgman)
+[![npm](https://img.shields.io/npm/v/@moul.io/pkgman)](https://www.npmjs.com/package/@moul.io/pkgman)
+[![Sourcegraph](https://sourcegraph.com/github.com/moul/pkgman/-/badge.svg)](https://sourcegraph.com/github.com/moul/pkgman?badge)
 [![Made by Manfred Touron](https://img.shields.io/badge/made%20by-Manfred%20Touron-blue.svg?style=flat)](https://manfred.life/)
 
 
 ## Usage
 
 ```console
-$ golang-repo-template -h
+$ pkgman -h
 ...
 ```
 
@@ -28,18 +28,18 @@ $ golang-repo-template -h
 ### Using go
 
 ```console
-$ go get -u moul.io/golang-repo-template
+$ go get -u moul.io/pkgman
 ```
 
 ### Using brew
 
 ```console
-$ brew install moul/moul/golang-repo-template
+$ brew install moul/moul/pkgman
 ```
 
 ### Download releases
 
-https://github.com/moul/golang-repo-template/releases
+https://github.com/moul/pkgman/releases
 
 ## License
 
