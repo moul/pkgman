@@ -1,3 +1,5 @@
+testdata/*.ipa
+
 # Temporary files
 *~
 *#
