@@ -1,4 +1,5 @@
 testdata/*.ipa
+testdata/*.apk
 
 # Temporary files
 *~

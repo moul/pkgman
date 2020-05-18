@@ -55,6 +55,20 @@ func (p Package) File(name string) *zip.File {
 	return nil
 }
 
+func (p Package) FileBytes(name string) ([]byte, error) {
+	f := p.File(name)
+	if f == nil {
+		return nil, fmt.Errorf("no such file: Info.plist")
+	}
+
+	r, err := f.Open()
+	if err != nil {
+		return nil, err
+	}
+
+	return ioutil.ReadAll(r)
+}
+
 type App struct {
 	p    *Package
 	Name string
@@ -86,22 +100,12 @@ func (a App) File(name string) *zip.File {
 }
 
 func (a App) Plist() (*Plist, error) {
-	f := a.File("Info.plist")
-	if f == nil {
-		return nil, fmt.Errorf("no such file: Info.plist")
-	}
-
-	r, err := f.Open()
+	b, err := a.p.FileBytes(path.Join(a.dir(), "Info.plist"))
 	if err != nil {
 		return nil, err
 	}
 
-	bin, err := ioutil.ReadAll(r)
-	if err != nil {
-		return nil, err
-	}
-	buf := bytes.NewReader(bin)
-
+	buf := bytes.NewReader(b)
 	var ret Plist
 	decoder := plist.NewDecoder(buf)
 	err = decoder.Decode(&ret)
