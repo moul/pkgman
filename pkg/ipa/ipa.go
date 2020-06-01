@@ -99,6 +99,11 @@ func (a App) File(name string) *zip.File {
 	return nil
 }
 
+func (a App) FileBytes(name string) ([]byte, error) {
+	target := path.Join(a.dir(), name)
+	return a.p.FileBytes(target)
+}
+
 func (a App) Plist() (*Plist, error) {
 	b, err := a.p.FileBytes(path.Join(a.dir(), "Info.plist"))
 	if err != nil {

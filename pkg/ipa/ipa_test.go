@@ -62,4 +62,12 @@ func TestOpen_gomobileipfsdemo(t *testing.T) {
 		UISupportedInterfaceOrientations: []string{"UIInterfaceOrientationPortrait", "UIInterfaceOrientationLandscapeLeft"},
 	}
 	require.Equal(t, plist, expected)
+
+	noExists, err := app.FileBytes("blahblah")
+	require.Nil(t, noExists)
+	require.Error(t, err)
+
+	exists, err := app.FileBytes("Frameworks/libswiftFoundation.dylib")
+	require.NoError(t, err)
+	require.Equal(t, len(exists), 8479536)
 }
