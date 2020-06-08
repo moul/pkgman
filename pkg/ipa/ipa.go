@@ -58,7 +58,7 @@ func (p Package) File(name string) *zip.File {
 func (p Package) FileBytes(name string) ([]byte, error) {
 	f := p.File(name)
 	if f == nil {
-		return nil, fmt.Errorf("no such file: Info.plist")
+		return nil, fmt.Errorf("no such file: %s", name)
 	}
 
 	r, err := f.Open()
