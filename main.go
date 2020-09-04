@@ -8,8 +8,9 @@ import (
 	"os"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"moul.io/godev"
+	"moul.io/pkgman/pkg/apk"
 	"moul.io/pkgman/pkg/ipa"
+	"moul.io/u"
 )
 
 func main() {
@@ -27,6 +28,11 @@ func run(args []string) error {
 				Name:       "ipa-plist-json",
 				ShortUsage: "ipa-plist-json PATH",
 				Exec:       runIpaPlistJSON,
+			},
+			{
+				Name:       "apk-manifest",
+				ShortUsage: "apk-manifest",
+				Exec:       runApkManifest,
 			},
 		},
 		Exec: func(context.Context, []string) error { return flag.ErrHelp },
@@ -50,8 +56,28 @@ func runIpaPlistJSON(_ context.Context, args []string) error {
 			if err != nil {
 				return err
 			}
-			fmt.Println(godev.PrettyJSON(plist))
+			fmt.Println(u.PrettyJSON(plist))
 		}
+	}
+	return nil
+}
+
+func runApkManifest(_ context.Context, args []string) error {
+	if len(args) < 1 {
+		return flag.ErrHelp
+	}
+	for _, arg := range args {
+		pkg, err := apk.Open(arg)
+		if err != nil {
+			return err
+		}
+		defer pkg.Close()
+
+		manifest, err := pkg.Manifest()
+		if err != nil {
+			return err
+		}
+		fmt.Println(u.PrettyJSON(manifest))
 	}
 	return nil
 }
