@@ -24,16 +24,9 @@ func run(args []string) error {
 	root := &ffcli.Command{
 		ShortUsage: `pkgman SUBCOMMAND`,
 		Subcommands: []*ffcli.Command{
-			{
-				Name:       "ipa-plist-json",
-				ShortUsage: "ipa-plist-json PATH",
-				Exec:       runIpaPlistJSON,
-			},
-			{
-				Name:       "apk-manifest",
-				ShortUsage: "apk-manifest",
-				Exec:       runApkManifest,
-			},
+			{Name: "ipa-plist-json", ShortUsage: "ipa-plist-json PATH", Exec: runIpaPlistJSON},
+			{Name: "apk-manifest", ShortUsage: "apk-manifest PATH", Exec: runApkManifest},
+			{Name: "apk-manifest-xml", ShortUsage: "apk-manifest-xml PATH", Exec: runApkManifestXML},
 		},
 		Exec: func(context.Context, []string) error { return flag.ErrHelp },
 	}
@@ -78,6 +71,26 @@ func runApkManifest(_ context.Context, args []string) error {
 			return err
 		}
 		fmt.Println(u.PrettyJSON(manifest))
+	}
+	return nil
+}
+
+func runApkManifestXML(_ context.Context, args []string) error {
+	if len(args) < 1 {
+		return flag.ErrHelp
+	}
+	for _, arg := range args {
+		pkg, err := apk.Open(arg)
+		if err != nil {
+			return err
+		}
+		defer pkg.Close()
+
+		manifest, err := pkg.ManifestXML()
+		if err != nil {
+			return err
+		}
+		fmt.Println(manifest)
 	}
 	return nil
 }

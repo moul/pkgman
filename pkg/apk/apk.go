@@ -14,7 +14,8 @@ import (
 )
 
 type Package struct {
-	r *zip.ReadCloser
+	r    *zip.ReadCloser
+	path string
 }
 
 func Open(path string) (*Package, error) {
@@ -22,7 +23,7 @@ func Open(path string) (*Package, error) {
 	if err != nil {
 		return nil, fmt.Errorf("open path: %w", err)
 	}
-	return &Package{r: r}, nil
+	return &Package{r: r, path: path}, nil
 }
 
 func (p *Package) Close() error {
@@ -57,17 +58,24 @@ func (p Package) FileBytes(name string) ([]byte, error) {
 }
 
 func (p Package) ManifestXML() (string, error) {
-	b, err := p.FileBytes("AndroidManifest.xml")
+	// this method is a little bit stupid, since it reopens a new zip,
+	// but when using apkparser.ParseXML on bytes, we lose some fields.
+	apkReader, err := apkparser.OpenZip(p.path)
 	if err != nil {
 		return "", err
 	}
-	binbuf := bytes.NewBuffer(b)
+	defer apkReader.Close()
 
 	xmlbuf := bytes.Buffer{}
 	xmlwriter := bufio.NewWriter(&xmlbuf)
 	enc := xml.NewEncoder(xmlwriter)
-	enc.Indent("  ", "    ")
-	err = apkparser.ParseXml(binbuf, enc, nil)
+	enc.Indent("", "    ")
+	parser, err := apkparser.NewParser(apkReader, enc)
+	if err != nil {
+		return "", err
+	}
+
+	err = parser.ParseXml("AndroidManifest.xml")
 	if err != nil {
 		return "", err
 	}
