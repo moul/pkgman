@@ -122,54 +122,63 @@ func (a App) Plist() (*Plist, error) {
 }
 
 type Plist struct {
-	BuildMachineOSBuild       string `json:"BuildMachineOSBuild"`
-	CFBundleDevelopmentRegion string `json:"CFBundleDevelopmentRegion"`
-	CFBundleDisplayName       string `json:"CFBundleDisplayName"`
-	CFBundleExecutable        string `json:"CFBundleExecutable"`
-	CFBundleIcons             struct {
+	BuildMachineOSBuild                 string   `json:"BuildMachineOSBuild,omitempty"`
+	BGTaskSchedulerPermittedIdentifiers []string `json:"BGTaskSchedulerPermittedIdentifiers,omitempty"`
+	CFBundleDevelopmentRegion           string   `json:"CFBundleDevelopmentRegion,omitempty"`
+	CFBundleDisplayName                 string   `json:"CFBundleDisplayName,omitempty"`
+	CFBundleExecutable                  string   `json:"CFBundleExecutable,omitempty"`
+	CFBundleIconName                    string   `json:"CFBundleIconName,omitempty"`
+	CFBundleIcons                       struct {
 		CFBundlePrimaryIcon struct {
-			CFBundleIconFiles []string `json:"CFBundleIconFiles"`
-			CFBundleIconName  string   `json:"CFBundleIconName"`
-		} `json:"CFBundlePrimaryIcon"`
-	} `json:"CFBundleIcons"`
-	CFBundleIdentifier            string   `json:"CFBundleIdentifier"`
-	CFBundleInfoDictionaryVersion string   `json:"CFBundleInfoDictionaryVersion"`
-	CFBundleName                  string   `json:"CFBundleName"`
-	CFBundlePackageType           string   `json:"CFBundlePackageType"`
-	CFBundleShortVersionString    string   `json:"CFBundleShortVersionString"`
-	CFBundleSignature             string   `json:"CFBundleSignature"`
-	CFBundleSupportedPlatforms    []string `json:"CFBundleSupportedPlatforms"`
+			CFBundleIconFiles []string `json:"CFBundleIconFiles,omitempty"`
+			CFBundleIconName  string   `json:"CFBundleIconName,omitempty"`
+		} `json:"CFBundlePrimaryIcon,omitempty"`
+	} `json:"CFBundleIcons,omitempty"`
+	CFBundleIdentifier            string   `json:"CFBundleIdentifier,omitempty"`
+	CFBundleInfoDictionaryVersion string   `json:"CFBundleInfoDictionaryVersion,omitempty"`
+	CFBundleName                  string   `json:"CFBundleName,omitempty"`
+	CFBundlePackageType           string   `json:"CFBundlePackageType,omitempty"`
+	CFBundleShortVersionString    string   `json:"CFBundleShortVersionString,omitempty"`
+	CFBundleSignature             string   `json:"CFBundleSignature,omitempty"`
+	CFBundleSupportedPlatforms    []string `json:"CFBundleSupportedPlatforms,omitempty"`
 	CFBundleURLTypes              []struct {
-		CFBundleTypeRole   string   `json:"CFBundleTypeRole"`
-		CFBundleURLName    string   `json:"CFBundleURLName"`
-		CFBundleURLSchemes []string `json:"CFBundleURLSchemes"`
-	} `json:"CFBundleURLTypes"`
-	CFBundleVersion        string `json:"CFBundleVersion"`
-	DTCompiler             string `json:"DTCompiler"`
-	DTPlatformBuild        string `json:"DTPlatformBuild"`
-	DTPlatformName         string `json:"DTPlatformName"`
-	DTPlatformVersion      string `json:"DTPlatformVersion"`
-	DTSDKBuild             string `json:"DTSDKBuild"`
-	DTSDKName              string `json:"DTSDKName"`
-	DTXcode                string `json:"DTXcode"`
-	DTXcodeBuild           string `json:"DTXcodeBuild"`
-	LSRequiresIPhoneOS     bool   `json:"LSRequiresIPhoneOS"`
-	MinimumOSVersion       string `json:"MinimumOSVersion"`
-	NSAppTransportSecurity struct {
-		NSAllowsArbitraryLoads bool `json:"NSAllowsArbitraryLoads"`
-		NSExceptionDomains     struct {
-			Localhost struct {
-				NSExceptionAllowsInsecureHTTPLoads bool `json:"NSExceptionAllowsInsecureHTTPLoads"`
-			} `json:"localhost"`
-		} `json:"NSExceptionDomains"`
-	} `json:"NSAppTransportSecurity"`
-	NSCameraUsageDescription                 string   `json:"NSCameraUsageDescription"`
-	NSLocationWhenInUseUsageDescription      string   `json:"NSLocationWhenInUseUsageDescription"`
-	UIAppFonts                               []string `json:"UIAppFonts"`
-	UIDeviceFamily                           []int    `json:"UIDeviceFamily"`
-	UILaunchStoryboardName                   string   `json:"UILaunchStoryboardName"`
-	UIRequiredDeviceCapabilities             []string `json:"UIRequiredDeviceCapabilities"`
-	UISupportedInterfaceOrientations         []string `json:"UISupportedInterfaceOrientations"`
+		CFBundleTypeRole   string   `json:"CFBundleTypeRole,omitempty"`
+		CFBundleURLName    string   `json:"CFBundleURLName,omitempty"`
+		CFBundleURLSchemes []string `json:"CFBundleURLSchemes,omitempty"`
+	} `json:"CFBundleURLTypes,omitempty"`
+	CFBundleVersion         string `json:"CFBundleVersion,omitempty"`
+	DTCompiler              string `json:"DTCompiler,omitempty"`
+	DTPlatformBuild         string `json:"DTPlatformBuild,omitempty"`
+	DTPlatformName          string `json:"DTPlatformName,omitempty"`
+	DTPlatformVersion       string `json:"DTPlatformVersion,omitempty"`
+	DTSDKBuild              string `json:"DTSDKBuild,omitempty"`
+	DTSDKName               string `json:"DTSDKName,omitempty"`
+	DTXcode                 string `json:"DTXcode,omitempty"`
+	DTXcodeBuild            string `json:"DTXcodeBuild,omitempty"`
+	LSRequiresIPhoneOS      bool   `json:"LSRequiresIPhoneOS"`
+	MinimumOSVersion        string `json:"MinimumOSVersion,omitempty"`
+	NSHighResolutionCapable bool   `json:"NSHighResolutionCapable"`
+	NSAppTransportSecurity  struct {
+		NSAllowsArbitraryLoads bool `json:"NSAllowsArbitraryLoads,omitempty"`
+		NSExceptionDomains     map[string]struct {
+			NSExceptionAllowsInsecureHTTPLoads bool   `json:"NSExceptionAllowsInsecureHTTPLoads,omitempty"`
+			NSIncludesSubdomains               bool   `json:"NSIncludesSubdomains,omitempty"`
+			NSExceptionMinimumTLSVersion       string `json:"NSExceptionMinimumTLSVersion,omitempty"`
+			NSExceptionRequiresForwardSecrecy  bool   `json:"NSExceptionRequiresForwardSecrecy,omitempty"`
+			NSRequiresCertificateTransparency  bool   `json:"NSRequiresCertificateTransparency,omitempty"`
+		} `json:"NSExceptionDomains,omitempty"`
+	} `json:"NSAppTransportSecurity,omitempty"`
+	NSCameraUsageDescription                 string   `json:"NSCameraUsageDescription,omitempty"`
+	NSLocationWhenInUseUsageDescription      string   `json:"NSLocationWhenInUseUsageDescription,omitempty"`
+	UIAppFonts                               []string `json:"UIAppFonts,omitempty"`
+	UIBackgroundModes                        []string `json:"UIBackgroundModes,omitempty"`
+	UIDeviceFamily                           []int    `json:"UIDeviceFamily,omitempty"`
+	UILaunchStoryboardName                   string   `json:"UILaunchStoryboardName,omitempty"`
+	UIRequiredDeviceCapabilities             []string `json:"UIRequiredDeviceCapabilities,omitempty"`
+	UISupportedInterfaceOrientations         []string `json:"UISupportedInterfaceOrientations,omitempty"`
 	UIViewControllerBasedStatusBarAppearance bool     `json:"UIViewControllerBasedStatusBarAppearance"`
-	UIMainStoryboardFile                     string   `json:"UIMainStoryboardFile"`
+	UIMainStoryboardFile                     string   `json:"UIMainStoryboardFile,omitempty"`
+
+	// not standard
+	Shake map[string]interface{}
 }
