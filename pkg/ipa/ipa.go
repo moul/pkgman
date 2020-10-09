@@ -168,16 +168,31 @@ type Plist struct {
 			NSRequiresCertificateTransparency  bool   `json:"NSRequiresCertificateTransparency,omitempty"`
 		} `json:"NSExceptionDomains,omitempty"`
 	} `json:"NSAppTransportSecurity,omitempty"`
-	NSCameraUsageDescription                 string   `json:"NSCameraUsageDescription,omitempty"`
-	NSLocationWhenInUseUsageDescription      string   `json:"NSLocationWhenInUseUsageDescription,omitempty"`
-	UIAppFonts                               []string `json:"UIAppFonts,omitempty"`
-	UIBackgroundModes                        []string `json:"UIBackgroundModes,omitempty"`
-	UIDeviceFamily                           []int    `json:"UIDeviceFamily,omitempty"`
-	UILaunchStoryboardName                   string   `json:"UILaunchStoryboardName,omitempty"`
-	UIRequiredDeviceCapabilities             []string `json:"UIRequiredDeviceCapabilities,omitempty"`
-	UISupportedInterfaceOrientations         []string `json:"UISupportedInterfaceOrientations,omitempty"`
-	UIViewControllerBasedStatusBarAppearance bool     `json:"UIViewControllerBasedStatusBarAppearance"`
-	UIMainStoryboardFile                     string   `json:"UIMainStoryboardFile,omitempty"`
+	NSAppleMusicUsageDescription                 string   `json:"NSAppleMusicUsageDescription,omitempty"`
+	NSBluetoothAlwaysUsageDescription            string   `json:"NSBluetoothAlwaysUsageDescription,omitempty"`
+	NSBluetoothPeripheralUsageDescription        string   `json:"NSBluetoothPeripheralUsageDescription,omitempty"`
+	NSCalendarsUsageDescription                  string   `json:"NSCalendarsUsageDescription,omitempty"`
+	NSCameraUsageDescription                     string   `json:"NSCameraUsageDescription,omitempty"`
+	NSContactsUsageDescription                   string   `json:"NSContactsUsageDescription,omitempty"`
+	NSFaceIDUsageDescription                     string   `json:"NSFaceIDUsageDescription,omitempty"`
+	NSLocationAlwaysAndWhenInUseUsageDescription string   `json:"NSLocationAlwaysAndWhenInUseUsageDescription,omitempty"`
+	NSLocationAlwaysUsageDescription             string   `json:"NSLocationAlwaysUsageDescription,omitempty"`
+	NSLocationWhenInUseUsageDescription          string   `json:"NSLocationWhenInUseUsageDescription,omitempty"`
+	NSMicrophoneUsageDescription                 string   `json:"NSMicrophoneUsageDescription,omitempty"`
+	NSMotionUsageDescription                     string   `json:"NSMotionUsageDescription,omitempty"`
+	NSPhotoLibraryUsageDescription               string   `json:"NSPhotoLibraryUsageDescription,omitempty"`
+	NSRemindersUsageDescription                  string   `json:"NSRemindersUsageDescription,omitempty"`
+	NSSpeechRecognitionUsageDescription          string   `json:"NSSpeechRecognitionUsageDescription,omitempty"`
+	NSSiriUsageDescription                       string   `json:"NSSiriUsageDescription,omitempty"`
+	NSUserTrackingUsageDescription               string   `json:"NSUserTrackingUsageDescription,omitempty"`
+	UIAppFonts                                   []string `json:"UIAppFonts,omitempty"`
+	UIBackgroundModes                            []string `json:"UIBackgroundModes,omitempty"`
+	UIDeviceFamily                               []int    `json:"UIDeviceFamily,omitempty"`
+	UILaunchStoryboardName                       string   `json:"UILaunchStoryboardName,omitempty"`
+	UIRequiredDeviceCapabilities                 []string `json:"UIRequiredDeviceCapabilities,omitempty"`
+	UISupportedInterfaceOrientations             []string `json:"UISupportedInterfaceOrientations,omitempty"`
+	UIViewControllerBasedStatusBarAppearance     bool     `json:"UIViewControllerBasedStatusBarAppearance"`
+	UIMainStoryboardFile                         string   `json:"UIMainStoryboardFile,omitempty"`
 
 	// not standard
 	Shake map[string]interface{}
