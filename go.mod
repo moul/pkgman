@@ -13,5 +13,5 @@ require (
 	golang.org/x/text v0.3.3 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200601152816-913338de1bd2 // indirect
 	howett.net/plist v0.0.0-20200419221736-3b63eb3a43b5
-	moul.io/u v1.18.0
+	moul.io/u v1.19.0
 )
