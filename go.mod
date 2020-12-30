@@ -9,9 +9,7 @@ require (
 	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
 	github.com/peterbourgon/ff/v3 v3.0.0
 	github.com/stretchr/testify v1.6.1
-	golang.org/x/net v0.0.0-20200927032502-5d4f70055728 // indirect
-	golang.org/x/text v0.3.3 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200601152816-913338de1bd2 // indirect
 	howett.net/plist v0.0.0-20200419221736-3b63eb3a43b5
-	moul.io/u v1.19.1
+	moul.io/u v1.20.0
 )
