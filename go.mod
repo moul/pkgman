@@ -3,7 +3,7 @@ module moul.io/pkgman
 go 1.13
 
 require (
-	github.com/avast/apkparser v0.0.0-20200924103028-30471fa5618f
+	github.com/avast/apkparser v0.0.0-20210301101811-6256c76f738e
 	github.com/basgys/goxml2json v1.1.0
 	github.com/bitly/go-simplejson v0.5.0 // indirect
 	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
