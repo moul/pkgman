@@ -4,7 +4,7 @@ ARG             VCS_REF
 ARG             VERSION
 
 # build
-FROM            golang:1.16.3-alpine as builder
+FROM            golang:1.16.5-alpine as builder
 RUN             apk add --no-cache git gcc musl-dev make
 ENV             GO111MODULE=on
 WORKDIR         /go/src/moul.io/pkgman
@@ -14,7 +14,7 @@ COPY            . ./
 RUN             make install
 
 # minimalist runtime
-FROM alpine:3.13.5
+FROM alpine:3.14.0
 LABEL           org.label-schema.build-date=$BUILD_DATE \
                 org.label-schema.name="pkgman" \
                 org.label-schema.description="" \
